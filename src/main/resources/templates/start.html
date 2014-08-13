@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:include="layout :: htmlhead" th:with="title='Welcome'"></head>
+
+  <body>
+    <div th:replace="layout :: navbar">(navbar)</div>
+
+    <div class="container">
+      <div class="starter-template">
+        <h1>Data Information</h1>  
+        <p>Total vehicles: <span th:text="${vehicleCount}" class="badge">(vehicleCount)</span></p>
+        <p sec:authorize="hasRole('ROLE_ADMIN')">Total engines: <span th:text="${engineCount}" class="badge">(vehicleCount)</span></p>
+        <p>Information retrieved on <span th:text="${currentTime}">(time)</span></p>
+      </div>
+    </div>
+
+    <div th:include="layout :: footer" id="footer">(footer)</div>
+
+  </body>
+</html>

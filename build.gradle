@@ -1,0 +1,49 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-snapshot" }
+        mavenLocal()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.5.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+war {
+    baseName = 'cube'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-snapshot" }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:1.1.5.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-security:1.1.5.RELEASE")
+    compile("org.thymeleaf:thymeleaf-spring4:2.1.2.RELEASE")
+    compile("org.thymeleaf.extras:thymeleaf-extras-springsecurity3:2.1.1.RELEASE")
+    compile("org.webjars:bootstrap:3.2.0")
+    compile("org.webjars:jquery:2.0.3-1")
+    compile("org.hibernate:hibernate-core:4.3.6.Final")
+    compile("org.hibernate:hibernate-entitymanager:4.3.6.Final")
+    compile("com.h2database:h2:1.4.181")
+    compile("org.springframework:spring-tx:4.0.6.RELEASE")
+    compile("org.springframework:spring-orm:4.0.6.RELEASE")
+    compile("org.springframework:spring-jdbc:4.0.6.RELEASE")
+    compile("org.springframework.data:spring-data-jpa:1.6.2.RELEASE")
+    compile("org.aspectj:aspectjweaver:1.8.0")
+    compile("org.flywaydb:flyway-core:3.0")
+    compile("com.google.guava:guava:17.0")
+    compile("joda-time:joda-time:2.4")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}

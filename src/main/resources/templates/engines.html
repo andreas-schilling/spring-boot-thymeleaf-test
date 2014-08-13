@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: htmlhead" th:with="title='Engine Overview'"></head>
+
+<body>
+	<div th:replace="layout :: navbar">(navbar)</div>
+
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Engines</h1>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="starter-template">
+			<table class="table table-bordered table-hover table-condensed">
+				<tr>
+					<th>ID</th>
+					<th>Engine</th>
+				</tr>
+				<tr th:each="engine : ${engines}">
+					<td th:text="${engine.id}"></td>
+					<td th:text="${engine.label}"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div th:include="layout :: footer" id="footer">(footer)</div>
+
+</body>
+</html>

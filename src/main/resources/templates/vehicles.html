@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: htmlhead" th:with="title='Vehicle Overview'"></head>
+
+<body>
+	<div th:replace="layout :: navbar">(navbar)</div>
+
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Vehicles</h1>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="starter-template">
+			<table class="table table-bordered table-hover table-condensed">
+				<tr>
+					<th>ID</th>
+					<th>Full name</th>
+					<th>Model</th>
+					<th>Engine</th>
+				</tr>
+				<tr th:each="vehicle : ${vehicles}">
+					<td th:text="${vehicle.id}"></td>
+					<td th:text="${vehicle.label}"></td>
+					<td th:text="${vehicle.name}"></td>
+					<td th:text="${vehicle.engine.label}"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div th:include="layout :: footer" id="footer">(footer)</div>
+
+</body>
+</html>
