@@ -1,30 +1,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:include="layout :: htmlhead" th:with="title='Engine Overview'"></head>
+<head th:include="layout :: htmlhead" th:with="title='Engine Overview'">
+</head>
 
 <body>
+	<script th:src="@{/js/enginesController.js}"></script>
 	<div th:replace="layout :: navbar">(navbar)</div>
-
 	<div class="jumbotron">
 		<div class="container">
 			<h1>Engines</h1>
 		</div>
 	</div>
 
-	<div class="container">
+	<div class="container" ng-app="enginesModule" ng-controller="enginesListCtrl">
 		<div class="starter-template">
 			<table class="table table-bordered table-hover table-condensed">
 				<tr>
 					<th>ID</th>
 					<th>Engine</th>
 				</tr>
-				<tr th:each="engine : ${engines}">
-					<td th:text="${engine.id}"></td>
-					<td th:text="${engine.label}"></td>
+				<tr ng-repeat="engine in engines">
+					<td>{{engine.id}}</td>
+					<td>{{engine.label}}</td>
 				</tr>
 			</table>
+			
+			<div class="gridStyle" ng-grid="gridOptions"></div>
 		</div>
 	</div>
-
+	
 	<div th:include="layout :: footer" id="footer">(footer)</div>
 
 </body>

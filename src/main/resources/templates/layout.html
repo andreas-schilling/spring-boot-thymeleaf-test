@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" ng-app="enginesModule">
 <head th:fragment="htmlhead">
 <meta charset="utf-8"></meta>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
@@ -13,6 +13,12 @@
 
 <link th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.css}"
 	rel="stylesheet"></link>
+<link th:href="@{/webjars/ng-grid/2.0.11/ng-grid.css}"
+	rel="stylesheet"></link>
+<script th:src="@{/webjars/jquery/2.1.1/jquery.js}"></script>
+<script th:src="@{/webjars/angularjs/1.2.22/angular.js}"></script>
+<script th:src="@{/webjars/angularjs/1.2.22/angular-resource.js}"></script>
+<script th:src="@{/webjars/ng-grid/2.0.11/ng-grid.js}" type="text/javascript"></script>
 <link th:href="@{/css/starter.css}" rel="stylesheet"></link>
 </head>
 
@@ -34,7 +40,8 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/start">Home</a></li>
 					<li><a href="/vehicles/all">Vehicles</a></li>
-					<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/engines/all">Engines</a></li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')"><a
+						href="/engines/all">Engines</a></li>
 					<li><a href="/logout">Logout</a></li>
 				</ul>
 			</div>

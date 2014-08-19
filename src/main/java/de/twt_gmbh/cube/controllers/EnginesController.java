@@ -43,7 +43,7 @@ public class EnginesController
   @PreAuthorize("hasRole('ROLE_ADMIN')")
   public String allWithView( final Locale locale, final Model model )
   {
-    model.addAttribute( "engines", allWithMarshalling() );
+    //model.addAttribute( "engines", allWithMarshalling() );
 
     return "engines";
   }
